@@ -1,0 +1,31 @@
+<!-- <h2>{{tytul}}</h2>
+
+<ul>
+	<li *ngFor="let car of samochody">
+		<h3 style="display: inline;">{{car.marka}} {{car.model}}</h3> <span *ngIf="car.rok"> {{car.rok}}</span>
+	</li>
+</ul> -->
+
+<h2>Samochody:</h2>
+<ul>
+  <li *ngFor="let car of samochody; let i = index">
+    <h3 style="display: inline">{{ car.marka }} {{ car.model }}</h3>
+    <span *ngIf="car.rok"> {{ car.rok }}</span> -->
+    <button (click)="usunCar(i)">Usuń</button>
+  </li>
+</ul>
+<br />
+<p>Podaj Samochod: --></p>
+<p [ngStyle]="{ color: 'red' }" *ngIf="requiredMarkaError">
+  Marka jest wymagana
+</p>
+<label for="marka">Marka</label>
+<input id="marka" [(ngModel)]="marka" /><br />
+<p [ngStyle]="{ color: 'red' }" *ngIf="requiredModelError">
+  Model jest wymagany
+</p>
+<label for="model">Model</label>
+<input id="model" [(ngModel)]="model" /><br />
+<label for="rok">Rok</label>
+<input id="rok" [(ngModel)]="rok" /> <br />
+<button (click)="dodajCar()">Dodaj samochod</button>
